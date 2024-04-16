@@ -1,0 +1,131 @@
+/*
+box-sizing:  Defines how the width and height of an element are calculated: should they include padding and borders, or not
+
+The box-sizing property allows us to include the padding and border in an element's total width and height.
+Since the result of using the box-sizing: border-box; is so much better, many developers want all elements
+on their pages to work this way.  The code below ensures that all elements are sized in this more intuitive way.
+Many browsers already use box-sizing: border-box; for many form elements (but not all - which is why inputs
+and text areas look different at width: 100%;).
+Applying this to all elements is safe and wise:
+* {
+  box-sizing: border-box;
+}
+
+
+text-transform:
+text-transform: none|capitalize|uppercase|lowercase|initial|inherit;
+
+text-align: center/left/right/jusitfy
+left	Aligns the text to the left	
+right	Aligns the text to the right	
+center	Centers the text	
+justify	Stretches the lines so that each line has equal width (like in newspapers and magazines)
+
+
+display:  ............. flex
+
+inline	Displays an element as an inline element (like <span>). Any height and width properties will have no effect. This is default.	
+block	Displays an element as a block element (like <p>). It starts on a new line, and takes up the whole width	
+contents	Makes the container disappear, making the child elements children of the element the next level up in the DOM	
+flex	Displays an element as a block-level flex container	
+grid	Displays an element as a block-level grid container	
+inline-block	Displays an element as an inline-level block container. The element itself is formatted as an inline element, but you can apply height and width values	
+inline-flex	Displays an element as an inline-level flex container	
+inline-grid	Displays an element as an inline-level grid container	
+inline-table	The element is displayed as an inline-level table	
+list-item	Let the element behave like a <li> element	
+run-in	Displays an element as either block or inline, depending on context	
+table	Let the element behave like a <table> element	
+table-caption	Let the element behave like a <caption> element	
+table-column-group	Let the element behave like a <colgroup> element	
+table-header-group	Let the element behave like a <thead> element	
+table-footer-group	Let the element behave like a <tfoot> element	
+table-row-group	Let the element behave like a <tbody> element	
+table-cell	Let the element behave like a <td> element	
+table-column	Let the element behave like a <col> element	
+table-row	Let the element behave like a <tr> element	
+none	The element is completely removed
+
+flex-direction:
+row	Default value. The flexible items are displayed horizontally, as a row	
+row-reverse	Same as row, but in reverse order	
+column	The flexible items are displayed vertically, as a column	
+column-reverse	Same as column, but in reverse order
+
+
+flex-wrap: 
+The flex-wrap property specifies whether the flexible items should wrap or not.
+Note: If the elements are not flexible items, the flex-wrap property has no effect.
+nowrap	Default value. Specifies that the flexible items will not wrap	
+wrap	Specifies that the flexible items will wrap if necessary	
+wrap-reverse	Specifies that the flexible items will wrap, if necessary, in reverse order
+
+align-items: #
+The align-items property specifies the default alignment for items inside a flexbox or grid container.
+
+In a flexbox container, the flexbox items are aligned on the cross axis, which is vertical by default (opposite
+of flex-direction).
+In a grid container, the grid items are aligned in the block direction. For pages in English, block direction
+is downward and inline direction is left to right.
+For this property to have any alignment effect, the items need available space around themselves in the appropriate direction.
+
+gap: 
+The gap property defines the size of the gap between the rows and between the columns in flexbox,
+grid or multi-column layout. It is a shorthand for the following properties:
+row-gap
+column-gap
+
+object-fit:
+fill - This is default. The image is resized to fill the given dimension. If necessary, the image will be stretched or squished to fit
+contain - The image keeps its aspect ratio, but is resized to fit within the given dimension
+cover - The image keeps its aspect ratio and fills the given dimension. The image will be clipped to fit
+none - The image is not resized
+scale-down - the image is scaled down to the smallest version of none or contain
+
+
+*/
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #f5f6f7;
+}
+
+.header {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 32px;
+  background-color: #0a0a23;
+  color: #fff;
+  border-bottom: 4px solid #fdb347;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 10px;
+}
+
+.gallery img {
+  width: 100%;
+  max-width: 350px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.gallery::after {
+  content: "";
+  width: 350px;
+}

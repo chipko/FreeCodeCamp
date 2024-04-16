@@ -1,0 +1,150 @@
+/*
+CSS positioning lets you set how you want an element to be positioned in the browser. It has a position property you can set to static, absolute, relative, sticky or fixed.
+
+Once you set the position property of the element, you can move the element around by setting a pixel or a percentage value for one or more of the top, right, left, or bottom properties.
+
+static is the default positioning for all elements. If you assign it to an element, you won't be able to move it around with top, right, left, or bottom.
+
+______________
+
+
+z-index is a property you can use to define the order of overlapping HTML elements. Any element with a higher z-index will always be positioned over an element with a lower z-index.
+
+______________
+
+
+The @media at-rule, also known as a media query, is used to conditionally apply CSS. Media queries are commonly used to apply CSS based on the viewport width using the max-width and min-width properties.
+
+In the below example the padding is applied to the .card class when the viewport is 960px wide and below.
+
+@media (max-width: 960px) {
+  .card {
+    padding: 2rem;
+  }
+}
+
+Logical operators can be used to construct more complex media queries. The and logical operator is used to query two media conditions.
+
+For example, a media query that targets a display width between 500px and 1000px would be:
+
+@media (min-width: 500px) and (max-width: 1000px){
+
+}
+
+
+
+Make your body fill the whole viewport by giving it a height of 100vh. Remove the default margin from the body by setting the margin to 0. Finally, set the overflow property to hidden to hide any scroll bars that appear when something extends past the viewport.
+
+
+Variable declarations begin with two dashes (-) and are given a name and a value like this: --variable-name: value;
+To use a variable, put the variable name in parentheses with var in front of them like this: var(--variable-name). Whatever value you gave the variable will be applied to whatever property you use it on.
+
+As they are only visiable to the selector where they are defined...
+variables are often declared in the :root selector. This is the highest level selector in CSS; putting your variables there will make them usable everywhere. Add the :root selector to the top of your stylesheet, and move all your variable declarations there.
+
+
+
+Gradients in CSS are a way to transition between colors across the distance of an element. They are applied to the background property and the syntax looks like this:
+
+gradient-type(
+  color1,
+  color2
+);
+In the example, color1 is solid at the top, color2 is solid at the bottom, and in between it transitions evenly from one to the next.
+
+  background: repeating-linear-gradient(
+      var(--building-color2),
+      var(--building-color2) 6%,
+      var(--window-color2) 6%,
+      var(--window-color2) 9%
+    );
+
+You can specify another direction by adding it before your colors like this:
+
+gradient-type(
+  direction,
+  color1,
+  color2
+);
+
+
+You can add multiple gradients to an element by separating them with a comma (,) like this:
+
+gradient1(
+  colors
+),
+gradient2(
+  colors
+);
+
+
+Use the minmax function to make your columns responsive on any device. The minmax function takes two arguments, the first being the minimum value and the second being the maximum. These values could be a length, percentage, fr, or even a keyword like max-content.
+
+If you wanted to add more social icons, but keep them on the same row, you would need to update grid-template-columns to create additional columns. As an alternative, you can use the grid-auto-flow property.
+
+This property takes either row or column as the first value, with an optional second value of dense. grid-auto-flow uses an auto-placement algorithm to adjust the grid layout. Setting it to column will tell the algorithm to create new columns for content as needed. The dense value allows the algorithm to backtrack and fill holes in the grid with smaller items, which can result in items appearing out of order.
+
+*/
+
+
+
+
+body {
+    /*transform: rotate(180deg);*/
+    background-color: #000055;
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    color: white;
+    /* letter-spacing: 0.1px; */
+}
+
+a {
+    color: white;
+    display: flex;
+    padding-left: 30px;
+    padding-right: 30px;
+
+}
+
+a:hover {
+    background-color: orange;
+    color: black;
+}
+
+.topsection {
+    position:sticky;
+    z-index: 999;
+    top: 0;
+    width:100%;
+    max-width: 100%;
+    min-width: 100%;
+    padding-left:20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    border-color: white;
+    border-bottom: 2px;
+    margin-left:-20px;
+    margin-top: -20px;
+    background-color: black;
+    text-decoration: none;
+}
+
+.linkssection {
+  animation: spinspinspin 10s linear infinite;
+    transform: rotate(-3deg);
+    border: 3px;
+    border-style: double;
+    background-color: rgb(0, 0, 160);
+    width: auto;
+    max-width: 30%;
+    margin-left: 40px;
+    font-weight: bold;
+}
+
+@keyframes spinspinspin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
